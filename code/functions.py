@@ -8,7 +8,7 @@ def plotGraph(outputTable):
     plt.plot(outputTable, color='black',linestyle='solid')
     plt.title(outputTable.columns[0])
     plt.tight_layout()
-    plt.savefig(outputTable.columns[0]+".jpg", dpi=300)
+    plt.savefig("../data/"+outputTable.columns[0]+".jpg", dpi=300)
     plt.show()
 
 
