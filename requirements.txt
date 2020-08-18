@@ -1,0 +1,4 @@
+pandas==1.0.1
+matplotlib==3.1.3
+pybbg==1.0.0
+python_dateutil==2.8.1

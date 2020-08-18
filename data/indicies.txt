@@ -1,0 +1,123 @@
+# [('periodicitySelection', 'DAILY')]
+# ustreasuries = ['USGG2YR Index','USGG3YR Index','USGG5YR Index','USGG7YR Index','USGG10YR Index','USGG20YR Index','USGG30YR Index']	
+US Treasury Rates	
+	
+2 Year	gt2 govt
+3 Year	gt3 govt
+5 Year	gt5 govt
+7 Year	gt7 govt
+10 Year	gt10 govt
+30 Year	gt30 govt
+	
+Misc Rates	
+	
+3M T-Bill Rate	cb3 govt
+3M LIBOR Rate	US0003M Index
+Fed Funds Rate	FDFD index
+5Y Swap Spread	USSP5 Curncy
+10Y Swap Spread	USSP10 Curncy
+2s - 10s Curve	USYC2Y10Y Index
+10s - 30s Curve	USYC1030 Index
+	
+World Rates	
+	
+EUR 10Yr Bund	GTEUR10Y Govt
+UK 10Yr Gilts	GTGBP10Y Govt
+JPN 10Yr Govt	GTJPY10Y Govt
+	
+Bond Index Stats	
+	
+US Agg	LBUSTRUU Index
+US 1-3 Year	LU13TRUU Index
+US Corp Agg	LUACTRUU Index
+US Treasury	LUATTRUU Index
+US Securitized	LD19TRUU Index
+AAA	LU3ATRUU Index
+AA	LU2ATRUU Index
+A	LU1ATRUU Index
+BBB	LUBATRUU Index
+BB	BCBATRUU index
+B	BCBHTRUU index
+	
+	
+CDX Investment Grade	cdx ig cdsi gen 5y corp
+CDX High Yield	cdx hy cdsi gen 5y prc corp
+(Spread)	cdx hy cdsi gen 5y sprd corp
+	
+	
+Volatility	
+	
+SPX Volatility Index (VIX)	VIX Index
+10yr Tsy Vol Index (TYVIX)	TYVIX Index
+Merrill Option Vol (MOVE)	MOVE index
+	
+World Equity Indices	
+	
+MSCI World	MXWO Index
+Dow Jones	INDU Index
+S&P 500	SPX Index
+NASDAQ	CCMP Index
+Russell 2000	RTY Index
+Euro Stoxx 50	SX5E Index
+FTSE 100	UKX  Index
+NIKKEI	NKY Index
+HANG SENG	HSI Index
+	
+Forex	
+	
+USD/JPY	USDJPY Curncy
+USD/CHF	USDCHF Curncy
+GBP/USD	GBPUSD Curncy
+EUR/USD	EURUSD Curncy
+USD/CAD	USDCAD Curncy
+AUD/USD	AUDUSD Curncy
+	
+Commodities	
+	
+Gold	GOLDS Comdty
+Silver	XAG Curncy
+3m Aluminum	LMAHDS03 Curncy
+3m Copper	LMCADS03 Curncy
+WTI Crude	CLA Comdty
+Brent Crude	COA Comdty
+Natural Gas	NGA Comdty
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

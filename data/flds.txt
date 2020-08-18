@@ -1,0 +1,49 @@
+usTreasuryRatesFields=['yld_ytm_mid','yld_chg_cls_ask','yld_chg_mtd_mid_net','yld_chg_ytd_mid_net']
+
+usGenericBonds = ['USGG2YR Index','USGG3YR Index','USGG5YR Index','USGG7YR Index','USGG10YR Index','USGG20YR Index','USGG30YR Index']
+flds = ['PX_LAST','PX_CLOSE_1D']
+
+usTreasuryBonds = ['GT2 Govt','gt3 govt','gt5 govt','gt7 govt','gt10 govt','gt30 govt']
+
+
+
+
+usBondIndexStats=['chg_pct_1d','chg_pct_ytd','oas_sovereign_curve','yield_to_worst','option_adj_duration_sov_crv']
+
+usBondIndicies = ['LU3ATRUU Index',
+                'LU2ATRUU Index',
+                'LU1ATRUU Index',
+                'LUBATRUU Index',
+                'BCBATRUU Index',
+                'BCBHTRUU Index',]
+
+
+
+
+Ask Price 	 PX_ASK
+Bid Price 	PX_BID
+High Price 	PX_HIGH
+Last trade/Last price 	LAST_PRICE
+Low Price 	PX_LOW
+Mid Price 	PX_MID
+Open Price 	PX_OPEN
+Option Price 	OPT_PX
+Settlement Price 	PX_SETTLE
+Strike Price 	STRIKE_PX
+Best EV/EBITDA 	TO_EBITDA
+Best P/E Ratio 	PE_RATIO
+Closing Price 1 Day Ago 	CLOSE_1D
+Contract value 	CONTRACT_VALUE
+Current Enterprise Value 	ENTP_VAL
+Enterprise Value 	ENTERPRISE_VALUE
+Enterprise Value (EV) to Book Value 	BOOK_VALUE
+Estimated P/E Nest Year Aggregate 	YR_AGGTE
+Net Asset Value (NAV) 	ASSET_VAL
+Price to Book Ratio 	BOOK_RATIO
+P/E ratio 	PE_RATIO
+Total market Value TOT_MKT_VAL 	MKT_VAL
+Volume 	VOLUME
+Volatility 30 day 	VOLATILITY_30D
+VWAP (Vol Weighted Average Price) 	AVG_PX
+Yesterday Close Price 	YEST_CLOSE
+
