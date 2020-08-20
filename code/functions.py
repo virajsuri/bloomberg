@@ -17,7 +17,6 @@ def printFrame(equity, table, roundingData):
     print(equity[0])
     for counterIndex, numOfFieldsIndex, in enumerate(table):
 
-        fldName = roundingData[0][counterIndex]
         formatStyle = roundingData[1][counterIndex]
         multiplier = roundingData[2][counterIndex]
         longName = roundingData[3][counterIndex]

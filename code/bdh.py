@@ -5,7 +5,7 @@ import pandas as pd
 from dateutil.relativedelta import relativedelta
 
 # security = ['58013MEH3 Corp']
-security = ['MCD US Equity']
+security = ['AAPL US 09/18/20 C465']
 
 #Dataframe for just getting price
 roundingDataPrice = pd.DataFrame([
