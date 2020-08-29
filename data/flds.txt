@@ -47,3 +47,38 @@ Volatility 30 day 	VOLATILITY_30D
 VWAP (Vol Weighted Average Price) 	AVG_PX
 Yesterday Close Price 	YEST_CLOSE
 
+
+
+'MTAFINTL Index',
+'MTAFINMN Index',
+'OPENCOUS Index',
+'OPENCIDV Index',
+'OPENCIWA Index',
+'OPENCINY Index',
+'MOVTUSWA Index',
+'MOVTUSCH Index',
+'MOVTUSBO Index',
+'MOVTUSMI Index',
+'MOVTUSPH Index',
+'MOVTUSHO Index',
+'MOVTUSLO Index',
+'MOVTUSPI Index',
+'MOVTUSSE Index',
+'MOVTUSSF Index',
+'TSATTPCY Index',
+'TSATTPPY Index',
+'GSDEDUSR Index',
+'GSDEDUSP Index',
+'USHMEWTO Index',
+'USHMHWTO Index',
+'USHMLBTO Index',
+'RSPR Index',
+
+'INJCJC Index',
+'INJCSP Index',
+'NFP TCH Index',
+'NFP T Index',
+'USURTOT Index',
+'NAPMPMI Index'
+
+])
