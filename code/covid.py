@@ -4,6 +4,7 @@ import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib.ticker import FuncFormatter
 
 tickers = [
     'NCOVUSCA Index',
@@ -23,35 +24,29 @@ tickers = [
     'OPENCIDV Index',
     'OPENCIWA Index',
     'OPENCINY Index',
-    # 'MOVTUSWA Index',
-    # 'MOVTUSCH Index',
-    # 'MOVTUSBO Index',
-    # 'MOVTUSMI Index',
-    # 'MOVTUSPH Index',
-    # 'MOVTUSHO Index',
-    # 'MOVTUSLO Index',
-    # 'MOVTUSPI Index',
-    # 'MOVTUSSE Index',
-    # 'MOVTUSSF Index',
-    # 'TSATTPCY Index',
-    # 'TSATTPPY Index',
-    # 'GSDEDUSR Index',
-    # 'GSDEDUSP Index',
-    # 'USHMEWTO Index',
-    # 'USHMHWTO Index',
-    # 'USHMLBTO Index',
-    # 'RSPR Index',
-    # 'INJCJC Index',
-    # 'INJCSP Index',
+    'MOVTUSWA Index',
+    'MOVTUSCH Index',
+    'MOVTUSBO Index',
+    'MOVTUSMI Index',
+    'MOVTUSPH Index',
+    'MOVTUSHO Index',
+    'MOVTUSLO Index',
+    'MOVTUSPI Index',
+    'MOVTUSSE Index',
+    'MOVTUSSF Index',
+    'TSATTPCY Index',
+    'TSATTPPY Index',
+    'USHMEWTO Index',
+    'USHMHWTO Index',
+    'USHMLBTO Index',
+    'RSPR Index',
+    'INJCJC Index',
+    'INJCSP Index'
 ]
 
-roundingData = pd.DataFrame([['PX_LAST']])
-
-compName = pd.DataFrame([['LONG_COMP_NAME']])
-
-def bdh_mixed(securities, roundingData, histDate, today, periodicity):
+def bdh_mixed(securities, field, histDate, today, periodicity):
         pipeline = pybbg.Pybbg()
-        data = pipeline.bdh(securities,roundingData[0], histDate, today, periodicity,
+        data = pipeline.bdh(securities, field, histDate, today, periodicity,
             overrides=dict(
                 CALENDAR_CONVENTION=1 # calendar convention 'calendar' flds rk408
             ),
@@ -67,50 +62,75 @@ def bdh_mixed(securities, roundingData, histDate, today, periodicity):
 def bdp(securities, roundingData):
         try:
             pipeline = pybbg.Pybbg()
-            data = pd.DataFrame(pipeline.bdp(securities, roundingData[0]))
+            data = pd.DataFrame(pipeline.bdp(securities, roundingData))
         except Exception as e: print(e)
         return(data) 
 
-def mainMethod():
-    #get dates
-    endDate = datetime.date.today()
-    startDate = date(2020,3,1)    
-    
-    #get covid data
-    output_table = bdh_mixed(tickers, roundingData, startDate, endDate, 'WEEKLY')
-    # print(output_table)
-
-    #get long comp names
-    comp_names = bdp(tickers, compName)
-    # print(comp_names)
-
-    #save to excel
+def saveToExcel(comp_names, output_table):
+ #save to excel
     print("Saving to Excel")
     writer = pd.ExcelWriter('../data/covidData.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
-    comp_names.to_excel(writer, sheet_name='COMP_NAMES')
     output_table.to_excel(writer, sheet_name='DATA')
+    comp_names.to_excel(writer, sheet_name='COMP_NAMES')
     writer.save()
     writer.close()
 
-    #plot and save as PDF
+def plot(comp_names, output_table):
     pdf = PdfPages("../data/covidoutput.pdf")
-    for columns in comp_names.columns:
+    for columns in output_table.columns:
         title = comp_names[columns][0]
-        print("Plotting "+title)
 
+        #title processing
+        dataPtFound = False
+        dataPtCounter = 1
+        while dataPtFound == False:
+            try:
+                recentDataPt = f'{int(output_table[columns][len(output_table)-dataPtCounter]):,}'
+                dataPtFound = True
+            except Exception as e: 
+                # print(e)
+                dataPtCounter+=1
+
+        mostrecent = " (Most Recent: " +recentDataPt+")"
+        print("Plotting "+title+mostrecent)
+
+        #plot
         fig = plt.figure(figsize=(9,5))
         plt.plot(output_table[columns])
-        plt.title(title)
-        # plt.ylim(bottom=0)
+        plt.title(title+mostrecent)
 
+        #add gridlines
         axes = plt.gca()
         axes.yaxis.grid()
+
+        #format y axis
+        axes.get_yaxis().set_major_formatter(FuncFormatter(lambda x, p: format(int(x), ',')))
+
+        #process and save
         plt.tight_layout()
         plt.savefig("../data/covid/"+title+".jpg", dpi=300, bbox_inches='tight')
         pdf.savefig(fig)
         plt.close()
         
     pdf.close()
+
+
+def main():
+    #get dates
+    endDate = datetime.date.today()
+    startDate = date(2020,3,1)    
+    
+    #get covid data
+    output_table = bdh_mixed(tickers, 'PX_LAST', startDate, endDate, 'WEEKLY')
+    # print(output_table)
+
+    #get long comp names
+    comp_names = bdp(tickers, 'LONG_COMP_NAME')
+    print(comp_names)
+
+    # saveToExcel(comp_names, output_table)
+    plot(comp_names, output_table) 
+    
     
 
-mainMethod()
+main()
