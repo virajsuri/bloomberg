@@ -67,7 +67,6 @@ def bdp(securities, roundingData):
         return(data) 
 
 def saveToExcel(comp_names, output_table):
- #save to excel
     print("Saving to Excel")
     writer = pd.ExcelWriter('../data/covidData.xlsx', engine='xlsxwriter') # pylint: disable=abstract-class-instantiated
     output_table.to_excel(writer, sheet_name='DATA')
@@ -81,15 +80,15 @@ def plot(comp_names, output_table):
         title = comp_names[columns][0]
 
         #title processing
-        dataPtFound = False
-        dataPtCounter = 1
-        while dataPtFound == False:
+        data_pt_found = False
+        data_pt_counter = 1
+        while data_pt_found == False:
             try:
-                recentDataPt = f'{int(output_table[columns][len(output_table)-dataPtCounter]):,}'
-                dataPtFound = True
+                recentDataPt = f'{int(output_table[columns][len(output_table)-data_pt_counter]):,}'
+                data_pt_found = True
             except Exception as e: 
                 # print(e)
-                dataPtCounter+=1
+                data_pt_counter+=1
 
         mostrecent = " (Most Recent: " +recentDataPt+")"
         print("Plotting "+title+mostrecent)
@@ -126,11 +125,9 @@ def main():
 
     #get long comp names
     comp_names = bdp(tickers, 'LONG_COMP_NAME')
-    print(comp_names)
+    # print(comp_names)
 
     # saveToExcel(comp_names, output_table)
     plot(comp_names, output_table) 
     
-    
-
 main()
