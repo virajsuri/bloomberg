@@ -1,8 +1,9 @@
-import pybbg
-from datetime import date
 import datetime
-import pandas as pd
+from datetime import date
+
 import matplotlib.pyplot as plt
+import pandas as pd
+import pybbg
 from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.ticker import FuncFormatter
 
